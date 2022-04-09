@@ -36,7 +36,7 @@
 
                     @foreach ($tags as $tag ) 
                         <div class="custom-control custom-checkbox">
-                            <input name="tags[]" type="checkbox" class="custom-control-input" id="tag_{{$tag->id}}">
+                            <input name="tags[]" type="checkbox" class="custom-control-input" id="tag_{{$tag->id}}" {{in_array($tag->id,old('tags',[]))?'checked':''}}>
                             <label class="custom-control-label" for="tag_{{$tag->id}}">{{$tag->name}}</label>
                         </div>
                         

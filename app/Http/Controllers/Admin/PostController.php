@@ -71,6 +71,7 @@ class PostController extends Controller
         $post->save();
 
         $post->tags()->sync($data['tags']);
+
         return redirect()->route('admin.post.index');
 
 
@@ -96,7 +97,8 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $categories = Category::all();
-        return view('admin.post.edit', compact('post','categories'));
+        $tags = Tag::all();
+        return view('admin.post.edit', compact('post','categories','tags'));
     }
 
     /**
