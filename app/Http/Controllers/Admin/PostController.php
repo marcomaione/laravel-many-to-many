@@ -47,7 +47,7 @@ class PostController extends Controller
                 'title'=>'required|min:5',
                 'content'=> 'required|min:10',
                 'category_id'=>'nullable|exists:categories,id',
-                'tags'=>'nullable|exists:tags,id'
+                'tags'=>'nullable|exists:tags,id',
             ]
         );
 
@@ -57,7 +57,7 @@ class PostController extends Controller
 
         $counter = 1;
 
-        while(Post::where('slug', $slug)->first()) {
+        while(Post::where('slug',$slug)->first()) {
 
             $slug = Str::slug($data['title']).'-'. $counter;
             $counter++;
@@ -65,6 +65,7 @@ class PostController extends Controller
         }
 
         $data['slug'] = $slug;
+
         $post = new Post();
         $post->fill($data);
         $post->save();
