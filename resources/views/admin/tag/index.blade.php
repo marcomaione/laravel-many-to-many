@@ -25,10 +25,10 @@
                                 <td>{{$tag->slug}}</td>
                                 
                                 <td class="d-flex">
-                                    <a href="{{route('admin.post.show', $post->id)}}" class="btn btn-primary">vedi</a>
-                                    <a href="{{route('admin.post.edit', $post->id)}}" class="btn btn-secondary">modifica</a>
+                                    <a href="{{route('admin.post.show', $tag->id)}}" class="btn btn-primary">vedi</a>
+                                    <a href="{{route('admin.post.edit', $tag->id)}}" class="btn btn-secondary">modifica</a>
 
-                                    <form method="POST" action="{{route('admin.post.destroy', $post->id)}}">
+                                    <form method="POST" action="{{route('admin.post.destroy', $tag->id)}}">
 
                                         @csrf
                                         @method('DELETE')

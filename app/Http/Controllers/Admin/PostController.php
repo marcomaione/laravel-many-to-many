@@ -42,12 +42,14 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        
         $request->validate(
             [
                 'title'=>'required|min:5',
                 'content'=> 'required|min:10',
                 'category_id'=>'nullable|exists:categories,id',
-                'tags'=>'nullable|exists:tags,id',
+                'tags'=>'nullable|exists:tags,id'
+                
             ]
         );
 
